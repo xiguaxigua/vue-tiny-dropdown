@@ -3,6 +3,7 @@
     @mouseenter="mouseInState = true"
     @mouseleave="mouseInState = false"
     class="td-tinydropdown">
+    <input type="text" ref="hideInput" class="hide-input">
     <el-input
       ref="input"
       @focus="focusHandler"
@@ -107,11 +108,16 @@ export default {
 
   computed: {
     popperStyle () {
+      let left = this.popperPosition.left
+      if (this.position === 'absolute') {
+        left += window.pageXOffset
+      }
       return {
         width: this.innerPopperWidth,
         height: `${this.popperHeight}px`,
-        left: this.popperPosition.left,
-        top: this.popperPosition.top
+        left: `${left}px`,
+        top: `${this.popperPosition.top}px`,
+        position: this.position
       }
     },
 
@@ -155,8 +161,8 @@ export default {
       const input = this.$refs.input.$el
       const position = input.getBoundingClientRect()
       this.popperPosition = {
-        left: `${position.left}px`,
-        top: `${position.top + position.height}px`
+        left: position.left,
+        top: position.top + position.height
       }
       this.inputWidth = `${position.width}px`
     },
@@ -168,6 +174,7 @@ export default {
     reset () {
       this.popperVisible = false
       this.innerKeywords = this.selected ? this.selected.id : ''
+      this.$refs.hideInput.focus()
     },
 
     clearSelect () {
@@ -248,6 +255,7 @@ export default {
     window.addEventListener('click', this.windowClickHandler)
     if (this.position === 'fixed') {
       window.addEventListener('resize', this.reset)
+      window.addEventListener('scroll', this.reset)
     }
   },
 
@@ -255,6 +263,7 @@ export default {
     window.removeEventListener('click', this.windowClickHandler)
     if (this.position === 'fixed') {
       window.removeEventListener('resize', this.reset)
+      window.removeEventListener('scroll', this.reset)
     }
     if (this.domAppended) {
       document.body.removeChild(this.$refs.popper)
@@ -270,6 +279,16 @@ export default {
 .td-tinydropdown {
   display: inline-block;
   width: 200px;
+  position: relative;
+
+  .hide-input {
+    width: 0;
+    height: 0;
+    border: 0;
+    padding: 0;
+    position: absolute;
+    z-index: -1;
+  }
 
   .close-btn {
     cursor: pointer;
@@ -279,7 +298,6 @@ export default {
 }
 
 .td-tinydropdown-list-popper {
-  position: absolute !important;
   overflow: hidden;
   border: 1px solid #d1dbe5;
   border-radius: 2px;

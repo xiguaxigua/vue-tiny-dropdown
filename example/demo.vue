@@ -85,5 +85,11 @@ export default {
 </script>
 
 <style lang="scss">
+.page-demo {
+  width: 2000px;
 
+  .td-tinydropdown {
+    margin-left: 1000px;
+  }
+}
 </style>

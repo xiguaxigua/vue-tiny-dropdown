@@ -1,7 +1,7 @@
 import TinyDropdopwn from './tiny-dropdown'
 
 function install (Vue, _) {
-  Vue.components('TinyDropdopwn', TinyDropdopwn)
+  Vue.component('TinyDropdopwn', TinyDropdopwn)
 }
 
 if (typeof window !== 'undefined' && window.Vue) {

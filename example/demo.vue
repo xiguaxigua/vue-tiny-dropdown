@@ -22,19 +22,20 @@
 import TinyDropdown from '../src/tiny-dropdown'
 
 const DEFAULT_OPTIONS = [
-  { label: '1', id: 456 },
-  { label: '2', id: 46 },
-  { label: '3', id: 56 },
-  { label: '1', id: 456 },
-  { label: '2', id: 46 },
-  { label: '3', id: 56 },
-  { label: '1', id: 456 },
-  { label: '2', id: 46 },
-  { label: '3', id: 56 },
-  { label: '1', id: 456 },
-  { label: '2', id: 46 },
-  { label: '3', id: 56 },
-  { label: '4', id: 45 }
+  { label: '1', id: 1 },
+  { label: '2', id: 2 },
+  { label: '3', id: 3 },
+  { label: '4', id: 4 },
+  { label: '5', id: 5 },
+  { label: '6', id: 6 },
+  { label: '7', id: 7 },
+  { label: '8', id: 8 },
+  { label: '9', id: 9 },
+  { label: '10', id: 10 },
+  { label: '11', id: 11 },
+  { label: '13', id: 13 },
+  { label: '14', id: 14 },
+  { label: '15', id: 15 }
 ]
 const DEFAULT_TOTAL = 100
 

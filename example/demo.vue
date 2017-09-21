@@ -37,7 +37,7 @@ const DEFAULT_OPTIONS = [
   { label: '14', id: 14 },
   { label: '15', id: 15 }
 ]
-const DEFAULT_TOTAL = 100
+const DEFAULT_TOTAL = 40
 
 export default {
   name: 'Demo',
@@ -84,13 +84,3 @@ export default {
   components: { TinyDropdown }
 }
 </script>
-
-<style lang="scss">
-.page-demo {
-  width: 2000px;
-
-  .td-tinydropdown {
-    margin-left: 1000px;
-  }
-}
-</style>

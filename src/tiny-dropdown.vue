@@ -199,10 +199,11 @@ export default {
 
     listClickHandler (e) {
       let target = e.target
-      while (!target.classList.contains('popper-item-li-check')) {
+      while (target.classList &&
+        !target.classList.contains('popper-item-li-check')) {
         target = target.parentNode
       }
-      if (target.classList.contains('is-selected')) return
+      if (!target.classList || target.classList.contains('is-selected')) return
       let targetIndex = target.dataset.index
       this.innerSelected = this.options[targetIndex]
       this.popperVisible = false

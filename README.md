@@ -1,5 +1,5 @@
 ## vue-tiny-dropdown
-> vue 惰性加载组件
+> vue 惰性加载列表组件
 
 https://jsfiddle.net/vue_echarts/cb69dybh/
 
